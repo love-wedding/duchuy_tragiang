@@ -1287,6 +1287,68 @@
 
     <script type="text/javascript" src="./js/main-v2.js"></script>
 
+    <script>
+        (function () {
+            const MUSIC_URL =
+                "./music.mp3";
+
+            // Tận dụng hệ thống âm thanh có sẵn của Webcake
+            window.W_AUDIO = window.W_AUDIO || new Map();
+
+            let audioInfo = window.W_AUDIO.get(MUSIC_URL);
+            let audio = audioInfo && audioInfo.el;
+
+            if (!audio) {
+                audio = new Audio(MUSIC_URL);
+                window.W_AUDIO.set(MUSIC_URL, { el: audio });
+            }
+
+            audio.loop = true;
+            audio.volume = 0.65;
+            audio.preload = "auto";
+
+            // Hai nút bật/tắt nhạc có sẵn trên thiệp
+            const playIcon = document.getElementById("w-pqtxq0p8");
+            const pauseIcon = document.getElementById("w-djaowtuq");
+
+            function syncMusicButton() {
+                if (playIcon) playIcon.style.display = "none";
+                if (pauseIcon) pauseIcon.style.display = "";
+            }
+
+            function playMusic() {
+                audio.play().then(function () {
+                    syncMusicButton();
+
+                    // Đã phát được thì không cần chờ tương tác nữa
+                    document.removeEventListener("pointerdown", firstInteraction, true);
+
+                    console.log("Wedding music is playing!");
+                }).catch(function () {
+                    console.log("Autoplay bị chặn, đang chờ khách chạm màn hình.");
+                });
+            }
+
+            // Tự thử phát khi trang tải xong
+            window.addEventListener("load", playMusic, { once: true });
+
+            // Nếu bị chặn, phát khi khách chạm màn hình lần đầu
+            function firstInteraction() {
+                if (audio.paused) {
+                    playMusic();
+                }
+            }
+
+            document.addEventListener(
+                "pointerdown",
+                firstInteraction,
+                true
+            );
+
+        })();
+    </script>
+
+
 
 
     <img height="1" width="1" alt="" style="display:none"
