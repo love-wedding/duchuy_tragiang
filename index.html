@@ -1287,12 +1287,11 @@
 
     <script type="text/javascript" src="./js/main-v2.js"></script>
 
+
     <script>
         (function () {
-            const MUSIC_URL =
-                "./music.mp3";
+            const MUSIC_URL = "./music.mp3";
 
-            // Tận dụng hệ thống âm thanh có sẵn của Webcake
             window.W_AUDIO = window.W_AUDIO || new Map();
 
             let audioInfo = window.W_AUDIO.get(MUSIC_URL);
@@ -1307,7 +1306,6 @@
             audio.volume = 0.65;
             audio.preload = "auto";
 
-            // Hai nút bật/tắt nhạc có sẵn trên thiệp
             const playIcon = document.getElementById("w-pqtxq0p8");
             const pauseIcon = document.getElementById("w-djaowtuq");
 
@@ -1318,35 +1316,33 @@
 
             function playMusic() {
                 audio.play().then(function () {
+                    console.log("Phát nhạc thành công!");
                     syncMusicButton();
 
-                    // Đã phát được thì không cần chờ tương tác nữa
                     document.removeEventListener("pointerdown", firstInteraction, true);
+                    document.removeEventListener("click", firstInteraction, true);
 
-                    console.log("Wedding music is playing!");
-                }).catch(function () {
-                    console.log("Autoplay bị chặn, đang chờ khách chạm màn hình.");
+                }).catch(function (error) {
+                    console.log("Autoplay bị chặn:", error.name);
                 });
             }
 
-            // Tự thử phát khi trang tải xong
-            window.addEventListener("load", playMusic, { once: true });
-
-            // Nếu bị chặn, phát khi khách chạm màn hình lần đầu
             function firstInteraction() {
                 if (audio.paused) {
                     playMusic();
                 }
             }
 
-            document.addEventListener(
-                "pointerdown",
-                firstInteraction,
-                true
-            );
+            // Tự động thử phát khi tải trang
+            window.addEventListener("load", playMusic, { once: true });
+
+            // Chờ tương tác đầu tiên nếu trình duyệt chặn autoplay
+            document.addEventListener("pointerdown", firstInteraction, true);
+            document.addEventListener("click", firstInteraction, true);
 
         })();
     </script>
+
 
 
 
