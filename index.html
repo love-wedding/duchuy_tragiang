@@ -86,6 +86,52 @@
             font-size: 18px
         }
     </style>
+    <style>
+        .gift-anim {
+            transform-origin: 50% 90%;
+            animation: giftShake 2.6s ease-in-out infinite;
+            filter: drop-shadow(0 4px 6px rgba(150, 100, 0, .35));
+        }
+
+        @keyframes giftShake {
+
+            0%,
+            55%,
+            100% {
+                transform: translateY(0) rotate(0) scale(1);
+            }
+
+            10% {
+                transform: translateY(-9px) rotate(0) scale(1.06);
+            }
+
+            18% {
+                transform: translateY(0) rotate(0) scale(1);
+            }
+
+            26% {
+                transform: rotate(-9deg);
+            }
+
+            34% {
+                transform: rotate(9deg);
+            }
+
+            42% {
+                transform: rotate(-6deg);
+            }
+
+            50% {
+                transform: rotate(4deg);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .gift-anim {
+                animation: none;
+            }
+        }
+    </style>
 </head>
 
 <body ontouchstart>
@@ -356,7 +402,7 @@
                     </div>
                     <div id="w-pdl931a6" class="com-text-block p-absolute is-animation">
                         <div class="text-block">
-                            <p class="text-block-css full-width">Tại Tư Gia Nhà Gái</p>
+                            <p class="text-block-css full-width">Tại Tư Gia</p>
                         </div>
                     </div>
                     <div id="w-k8kl83qy" class="com-text-block p-absolute is-animation">
@@ -386,7 +432,7 @@
                     </div>
                     <div id="w-6amly90s" class="com-text-block p-absolute is-animation">
                         <div class="text-block">
-                            <p class="text-block-css full-width"><span style="font-weight: bold;">TIỆC MỪNG LỄ THÀNH
+                            <p class="text-block-css full-width"><span style="font-weight: bold;">TIỆC MỪNG LỄ ĐÍNH
                                     HÔN</span></p>
                         </div>
                     </div>
@@ -475,9 +521,8 @@
                                 Hưng
                                 Yên</p>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Th%C3%B4n+Ng%E1%BB%8Dc+Nha+Th%C6%B0%E1%BB%A3ng%2C+Ph%C3%B9ng+H%C6%B0ng%2C+Kho%C3%A1i+Ch%C3%A2u%2C+H%C6%B0ng+Y%C3%AAn"
-                            target="_blank" rel="noopener noreferrer" title="Xem chỉ đường đến Nhà Trai"
-                            class="loc-directions-btn">
+                        <a href="https://maps.app.goo.gl/TcoavMbznfLnnEQ9A" target="_blank" rel="noopener noreferrer"
+                            title="Xem chỉ đường đến Nhà Trai" class="loc-directions-btn">
                             <div class="button-css full-height full-width">
                                 <div class="button-text full-width u-select-none">Xem Chỉ Đường</div>
                             </div>
@@ -528,9 +573,16 @@
                             <h2 class="text-block-css full-width">Xác Nhận Tham Dự<br>&amp;<br>Gửi Lời Chúc<br></h2>
                         </div>
                     </div>
-                    <div id="w-n9eye9rx" class="com-button p-absolute">
-                        <div class="button-css full-height full-width lazy"><span class="button-loader"></span>
-                            <div class="button-text full-width u-select-none">Hộp Quà Mừng</div>
+                    <div id="w-n9eye9rx" class="com-button p-absolute"
+                        style="top:355px;left:140px;width:140px;height:140px">
+                        <div class="button-css full-height full-width lazy"
+                            style="background:transparent;box-shadow:none;border:0;border-radius:12px"><span
+                                class="button-loader"></span>
+                            <div class="button-text full-width u-select-none" role="img" aria-label="Hộp Quà Mừng"
+                                style="display:flex;align-items:center;justify-content:center;height:100%">
+                                <img class="gift-anim" src="./images/present.png" alt="Hộp Quà Mừng" width="140"
+                                    height="137" style="border-radius:12px;display:block">
+                            </div>
                         </div>
                     </div>
                     <div id="w-hl53suyf" class="p-absolute">
