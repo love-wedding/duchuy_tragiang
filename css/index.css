@@ -8538,3 +8538,34 @@ a {
     animation-duration: 3s;
     -webkit-animation-duration: 3s;
 }
+
+.wedding-gift-heading {
+    text-align: center;
+    padding: 12px 10px 20px;
+}
+
+.gift-heading-icon {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.gift-heading-title {
+    font-family: 'SVN-Mightiest.otf', serif;
+    font-size: 27px;
+    font-weight: bold;
+    color: #8b2635;
+    letter-spacing: 2px;
+}
+
+.gift-heading-subtitle {
+    font-size: 13px;
+    color: #8b7567;
+    margin-top: 7px;
+}
+
+.gift-heading-line {
+    width: 65px;
+    height: 2px;
+    background: #bd9470;
+    margin: 13px auto 0;
+}
